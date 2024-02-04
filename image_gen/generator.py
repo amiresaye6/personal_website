@@ -11,6 +11,10 @@ def main():
     """renders the main page"""
     return render_template("index.html")
 
+@app.route('/contact')
+def contact():
+    """contact page route"""
+    return render_template("contact.html")
 @app.route('/generate', methods=['POST'])
 def generate():
     """generate the image according to user input"""
