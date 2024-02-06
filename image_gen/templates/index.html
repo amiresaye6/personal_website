@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <link rel="stylesheet" href="/image_gen/static/style.css">
     <title>Random Image Generator</title>
 </head>
 
@@ -14,60 +16,82 @@
             <div class="notification">
                 <div class="notiglow"></div>
                 <div class="notiborderglow"></div>
-                <div class="notititle"><form action="/generate" method="post">
-                    <h1>Random.png</h1>
-                <div class="notibody">Random Image Generator</div>
+                <div class="notititle">
+                    <form action="/generate" method="post">
+                        <h1>Random.png</h1>
+                        <div class="notibody">
 
-                    <!-- <div class="textInputWrapper">
-                        <input placeholder="Enter width" name="width" type="number" class="textInput">
-                    </div> -->
-                    <div class="form__group field">
-                        <input class="form__field" placeholder="Enter width" name="width" type="number"required="">
-                        <label for="name" class="form__label">Name</label>
-                    </div>
-                    <div class="textInputWrapper">
-                        <input placeholder="Enter height" name="height" type="number" class="textInput">
-                    </div>
-        
-                    <!-- <label for="category">Choose a category:</label> -->
-                    <select name="category" required>
-                        <option value="wildlife">Wildlife</option>
-                        <option value="abstract">Abstract</option>
-                        <option value="city">City</option>
-                        <option value="nature">Nature</option>
-                        <option value="still_life">Still_life</option>
-                        <option value="food">Food</option>
-                        <option value="technology">Technology</option>
-                    </select>
-        
-                    <button class="button">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75">
-                            </path>
-                        </svg>
-        
-                        <div class="text">
-                            Generate
+                            <h4>Random Image Generator</h4>
+
+                            <div class="input_container">
+                                <input placeholder="Enter width" class="input" name="width" type="number" required />
+                                <input placeholder="Enter Height" class="input" name="height" type="number" required />
+
+                                <!-- <label for="category">Choose a category:</label> -->
+                                <select name="category" required class="input">
+                                    <option value="wildlife">Wildlife</option>
+                                    <option value="abstract">Abstract</option>
+                                    <option value="city">City</option>
+                                    <option value="nature">Nature</option>
+                                    <option value="still_life">Still_life</option>
+                                    <option value="food">Food</option>
+                                    <option value="technology">Technology</option>
+                                </select>
+                            </div>
+
+
+                            <div class="button_container">
+
+
+                                <button class="button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75">
+                                        </path>
+                                    </svg>
+                                    <div class="text">
+                                        Generate
+                                    </div>
+                                </button>
+
+                                {% if image_url %}
+                                <div>
+                                    <button class="Btn" id="downloadBtn" formnovalidate>
+                                        <a href="{{ image_url }}" download="">
+                                            
+                                            <svg class="svgIcon" viewBox="0 0 384 512" height="1em"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z">
+                                                </path>
+                                            </svg>
+                                        </a>
+                                            <span class="icon2"></span>
+                                    </button>
+    
+    
+                                </div>
+                                {% endif %}
+
+
+                            </div>
+
                         </div>
-        
-                    </button>
-                </form></div>
-              </div>
+
+
+                    </form>
+                </div>
+            </div>
         </div>
         <div class="box" id="box2">
             <div id="gen_image">
                 {% if image_url %}
-                <img src="{{ image_url }}" alt="Generateing Image" class="image">
+                <img src="{{ image_url }}" alt="Coulding generate Image" class="image">
                 {% endif %}
             </div>
         </div>
     </div>
-
-
-
-
 
 </body>
 

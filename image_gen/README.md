@@ -27,9 +27,12 @@ The Random Image Generator is a web tool designed to streamline the process of g
 ## Planned Enhancements
 
 - Refine the main card style for a polished appearance.
-- Integrate a download button for improved user experience.
+- Integrate a download button for improved user experience. (done)
 - Host the website for seamless accessibility.
-- Incorporate a concise introductory paragraph at the top.
+- Implment download button with js.
+- Adding NavPar
+- Adding contact info, copyright part
+
 
 ## Debugging
 

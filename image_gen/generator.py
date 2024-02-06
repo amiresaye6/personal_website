@@ -6,15 +6,19 @@ from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def main():
     """renders the main page"""
     return render_template("index.html")
 
+
 @app.route('/contact')
 def contact():
     """contact page route"""
     return render_template("contact.html")
+
+
 @app.route('/generate', methods=['POST'])
 def generate():
     """generate the image according to user input"""
@@ -23,8 +27,6 @@ def generate():
     category = 'nature'
     category = request.form['category']
     print(width, height, category)
-
-    # For testing, setting a default category value ('nature')
 
     api_url = 'https://api.api-ninjas.com/v1/randomimage?category={}&width={}&height={}'.format(category, width, height)
 

@@ -8,6 +8,11 @@
   font-family: 'Poppins', sans-serif;
 }
 
+/* a {
+  text-decoration: none;
+  color: inherit;
+} */
+
 /* bodye style */
 
 body {
@@ -17,7 +22,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 20px;
+
 }
 
 .box {
@@ -34,8 +39,8 @@ body {
   flex-direction: column;
   isolation: isolate;
   position: relative;
-  width: 60rem;
-  height: 20rem;
+  min-width: 20rem;
+  min-height: 14rem;
   background: #29292c;
   border-radius: 1rem;
   overflow: hidden;
@@ -141,6 +146,7 @@ body {
   border-radius: 11px;
   text-align: right;
   transition: all 0.6s ease;
+  margin: 12px 14px;
 }
 
 .button:hover {
@@ -164,227 +170,112 @@ body {
   margin: 0 1.5em
 }
 
-/* input style 1*/
-.form {
-  --width-of-input: 200px;
-  --border-height: 1px;
-  --border-before-color: rgba(221, 221, 221, 0.39);
-  --border-after-color: #5891ff;
-  --input-hovered-color: #4985e01f;
-  position: relative;
-  width: var(--width-of-input);
-}
-
-form h1 {
-  color: rgba(255, 255, 255, 0.582);
-}
-
-/* styling of Input */
-.input {
-  color: #fff;
-  font-size: 0.9rem;
-  background-color: transparent;
-  width: 100%;
-  box-sizing: border-box;
-  padding-inline: 0.5em;
-  padding-block: 0.7em;
+/* download button style  */
+.Btn {
+  width: 50px;
+  height: 50px;
   border: none;
-  border-bottom: var(--border-height) solid var(--border-before-color);
-}
-
-/* input stuyle 2  */
-
-.form__group {
+  border-radius: 50%;
+  background-color: rgb(27, 27, 27);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
   position: relative;
-  padding: 20px 0 0;
-  width: 100%;
-  max-width: 180px;
+  transition-duration: 0.3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.11);
 }
 
-.form__field {
-  font-family: inherit;
-  width: 100%;
-  border: none;
-  border-bottom: 2px solid #9b9b9b;
-  outline: 0;
-  font-size: 17px;
-  color: #fff;
-  padding: 7px 0;
-  background: transparent;
-  transition: border-color 0.2s;
+.svgIcon {
+  fill: #2196f3;
 }
 
-.form__field::placeholder {
-  color: transparent;
+.icon2 {
+  width: 18px;
+  height: 5px;
+  border-bottom: 2px solid #2196f3;
+  border-left: 2px solid #2196f3;
+  border-right: 2px solid #2196f3;
 }
 
-.form__field:placeholder-shown ~ .form__label {
-  font-size: 17px;
-  cursor: text;
-  top: 20px;
-}
-
-.form__label {
-  position: absolute;
-  top: 0;
-  display: block;
-  transition: 0.2s;
-  font-size: 17px;
-  color: #9b9b9b;
-  pointer-events: none;
-}
-
-.form__field:focus {
-  padding-bottom: 6px;
-  font-weight: 700;
-  border-width: 3px;
-  border-image: linear-gradient(to right, #116399, #38caef);
-  border-image-slice: 1;
-}
-
-.form__field:focus ~ .form__label {
-  position: absolute;
-  top: 0;
-  display: block;
-  transition: 0.2s;
-  font-size: 17px;
-  color: #38caef;
-  font-weight: 700;
-}
-
-/* reset input */
-.form__field:required, .form__field:invalid {
-  box-shadow: none;
-}
-
-/* styling of animated border */
-.input-border {
-  position: absolute;
-  background: var(--border-after-color);
-  width: 0%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  transition: 0.3s;
-}
-
-/* Hover on Input */
-input:hover {
-  background: var(--input-hovered-color);
-}
-
-input:focus {
-  outline: none;
-}
-
-/* here is code of animated border */
-input:focus~.input-border {
-  width: 100%;
-}
-
-/* === if you want to do animated border on typing === */
-/* remove input:focus code and uncomment below code */
-/* input:valid ~ .input-border{
-     width: 100%;
-   } */
-.textInputWrapper {
-  position: relative;
-  width: 180px;
-  margin: 12px 5px;
-  --accent-color: #a3e583;
-}
-
-.textInputWrapper:before {
-  transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
-}
-
-.textInputWrapper:before,
-.textInputWrapper:after {
-  content: "";
-  left: 0;
-  right: 0;
-  position: absolute;
-  pointer-events: none;
-  bottom: -1px;
-  z-index: 4;
-  width: 100%;
-}
-
-.textInputWrapper:focus-within:before {
-  border-bottom: 1px solid var(--accent-color);
-}
-
-.textInputWrapper:before {
-  transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
-}
-
-.textInputWrapper:focus-within:before {
-  border-bottom: 1px solid var(--accent-color);
-  transform: scaleX(1);
-}
-
-.textInputWrapper:focus-within:after {
-  border-bottom: 2px solid var(--accent-color);
-  transform: scaleX(1);
-}
-
-.textInputWrapper:after {
-  content: "";
-  transform: scaleX(0);
-  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1) 0ms;
-  will-change: transform;
-  border-bottom: 2px solid var(--accent-color);
-  border-bottom-color: var(--accent-color);
-}
-
-.textInput::placeholder {
-  transition: opacity 250ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+.Btn:hover .tooltip {
   opacity: 1;
-  user-select: none;
-  color: rgba(255, 255, 255, 0.582);
+  transition-duration: 0.3s;
 }
 
-.textInputWrapper .textInput {
-  border-radius: 5px 5px 0px 0px;
-  box-shadow: 0px 2px 5px rgb(35 35 35 / 30%);
-  max-height: 36px;
-  background-color: #252525;
-  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
-  transition-duration: 200ms;
-  transition-property: background-color;
-  color: #e8e8e8;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 12px;
-  width: 100%;
-  border-left: none;
-  border-bottom: none;
-  border-right: none;
+.Btn:hover {
+  background-color: #3654ff;
+  transition-duration: 0.3s;
 }
 
-.textInputWrapper .textInput:focus,
-.textInputWrapper .textInput:active {
-  outline: none;
+.Btn:hover .icon2 {
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
 }
 
-.textInputWrapper:focus-within .textInput,
-.textInputWrapper .textInput:focus,
-.textInputWrapper .textInput:active {
-  background-color: #353535;
+.Btn:hover .svgIcon {
+  fill: black;
+  animation: slide-in-top 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
-.textInputWrapper:focus-within .textInput::placeholder {
-  opacity: 0;
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
 }
+
+
+/* input style 3 */
+
+.input {
+  background-color: #292929;
+  border: 1px solid #3e3e3e;
+  border-radius: 8px;
+  color: #fff;
+  padding: 0 24px;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 12px 14px;
+  cursor: pointer;
+  min-width: 100px;
+  height: 30px;
+}
+
+.input:hover {
+  border: 1px solid #fff;
+}
+
+/* image style  */
+#gen_image {
+  transition: transform 0.4s; /* Add transition property to smoothly animate transform changes */
+}
+
+#gen_image:hover {
+  transform: translateY(-10px); /* Move the image vertically up by 10 pixels */
+}
+
 
 /* addetional style  */
 .category {
   background-color: rgb(35 35 35 / 30%);
-    color: #e8e8e8;
+  color: #e8e8e8;
 }
 
 .image {
   border-radius: 20px;
+}
+
+.button_container,
+.input_container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
