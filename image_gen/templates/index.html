@@ -39,9 +39,7 @@
                                 </select>
                             </div>
 
-
                             <div class="button_container">
-
 
                                 <button class="button">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -55,26 +53,6 @@
                                     </div>
                                 </button>
 
-                                {% if image_url %}
-                                <div>
-                                    <button class="Btn" id="downloadBtn" formnovalidate>
-                                        <a href="{{ image_url }}" download="">
-                                            
-                                            <svg class="svgIcon" viewBox="0 0 384 512" height="1em"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z">
-                                                </path>
-                                            </svg>
-                                        </a>
-                                            <span class="icon2"></span>
-                                    </button>
-    
-    
-                                </div>
-                                {% endif %}
-
-
                             </div>
 
                         </div>
@@ -85,12 +63,16 @@
             </div>
         </div>
         <div class="box" id="box2">
+            {% if image_url %}
             <div id="gen_image">
-                {% if image_url %}
-                <img src="{{ image_url }}" alt="Coulding generate Image" class="image">
-                {% endif %}
+                <a href="{{ image_url }}" download>
+                    <img src="{{ image_url }}" alt="Coulding generate Image" class="image">
+                    <div class="download-overlay">Click to Download</div>
+                </a>
             </div>
+            {% endif %}
         </div>
+
     </div>
 
 </body>

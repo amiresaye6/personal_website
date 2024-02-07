@@ -255,13 +255,50 @@ body {
 
 /* image style  */
 #gen_image {
-  transition: transform 0.4s; /* Add transition property to smoothly animate transform changes */
+  position: relative;
+  transition: transform 0.4s;
+  display: flex; /* Add transition property to smoothly animate transform changes */
+  justify-content: flex-start;
 }
 
 #gen_image:hover {
   transform: translateY(-10px); /* Move the image vertically up by 10 pixels */
 }
 
+#gen_image img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  transition: filter 0.4s;
+
+}
+
+#gen_image:hover img {
+  filter: brightness(70%); /* Adjust brightness of the image */
+}
+
+#gen_image .download-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+#gen_image:hover .download-overlay {
+  opacity: 1; /* Show the overlay on hover */
+}
 
 /* addetional style  */
 .category {
